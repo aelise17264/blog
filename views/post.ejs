@@ -3,15 +3,15 @@
 <h1>Compose</h1>
 
 <form action="/compose" method="POST">
-    <label>Title</label>
-    <br>
-    <input type="text" name="postTitle"> 
-    <br>
-    <label>Post</label>
-    <br>
-    <textarea name="postBody" rows="5" cols="50"></textarea>
-    <br>
-    <button class="btn btn-lg btn-primary" type="submit" name="button">Publish</button>
+    <div class="form-group">
+        <label class="form-label">Title</label>
+        <input type="text" name="postTitle" class="form-control"> 
+        <br>
+        <label class="form-label">Post</label>
+        <textarea class="form-control" name="postBody" rows="5" cols="50"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit" name="button">Publish</button>
+
 </form>
 
 <%- include("partials/footer")-%>
