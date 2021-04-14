@@ -3,7 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const _ = require("lodash")
+// const _ = require("lodash")
 const mongoose = require("mongoose")
 
 
@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
+mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true, useUnifiedTopology: true})
 
 const postSchema = {
   title: String,
@@ -30,13 +30,14 @@ const postSchema = {
 const Post = mongoose.model("Post", postSchema)
 
 app.get("/", function(req, res){
+
   Post.find({}, function(err, posts){
-    res.render("home", 
-    {content: homeStartingContent, 
-    posts: posts
-  })
-})
-})
+    res.render("home", {
+      startingContent: homeStartingContent,
+      posts: posts
+      });
+  });
+});
 
 
 app.get("/about", function(req, res){
