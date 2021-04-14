@@ -43,3 +43,10 @@ textarea{
     width: 95%;
 } */
 
+.homePagePost{
+    display: block;
+    white-space: nowrap;
+    width: 30em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
